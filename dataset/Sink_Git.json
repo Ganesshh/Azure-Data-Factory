@@ -1,0 +1,25 @@
+{
+	"name": "Sink_Git",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linked Service DL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "File_Sales_2.csv",
+				"folderPath": "CSV Files",
+				"fileSystem": "destination"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
