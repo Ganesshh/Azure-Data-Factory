@@ -1,0 +1,21 @@
+{
+	"name": "Data_Storage_emptyJson",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Linked Service_DataLake",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "empty.json",
+				"folderPath": "Monitor",
+				"fileSystem": "source"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

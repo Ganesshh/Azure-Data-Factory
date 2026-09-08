@@ -1,0 +1,15 @@
+{
+	"name": "aazuredatafactoryproganesh",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7a9aec5b-8725-4cf7-be09-73ca0715fc72",
+		"tenantId": "b9c2b64e-0f30-4c1d-8b95-35329f7a2a4a"
+	}
+}

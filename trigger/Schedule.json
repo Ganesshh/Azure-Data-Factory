@@ -1,0 +1,28 @@
+{
+	"name": "Schedule",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Scheduled Pipeline",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"schema": "source",
+					"table": "Orders"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-09-07T02:40:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+{
+	"name": "Scheduled Pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Incremental Data ingestion Pipeline2",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"schema": "source",
+						"table": "Orders"
+					}
+				}
+			},
+			{
+				"name": "Alerts",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": {
+						"value": "https://prod-22.southindia.logic.azure.com:443/workflows/ef34f4b72c354e8488658e38f7122445/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=sUBzPP5s4m-sbPko6WyQXCarSNPAtOFeCBZVSzXgDqc",
+						"type": "Expression"
+					},
+					"body": {
+						"value": "{\n\n\"Pipeline_name\": \"@{pipeline().Pipeline}\"\n\n \"Pipeline_runid\": \"@{pipeline().RunId}\"\n\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "source"
+			},
+			"table": {
+				"type": "string",
+				"defaultValue": "Orders"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-09-06T21:24:41Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
