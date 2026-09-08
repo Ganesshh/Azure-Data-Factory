@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "aazuredatafactoryproganesh"
+		},
+		"Linked Service_DataLake_accountKey": {
+			"value": ""
+		},
+		"Linked Service_Database_password": {
+			"value": ""
+		},
+		"Linked Service_DataLake_properties_typeProperties_url": {
+			"value": "https://datafacrorystoragee.dfs.core.windows.net/"
+		},
+		"Linked Service_Database_properties_typeProperties_server": {
+			"value": "dfprooserver.database.windows.net"
+		},
+		"Linked Service_Database_properties_typeProperties_database": {
+			"value": "dfprodb"
+		},
+		"Linked Service_Database_properties_typeProperties_userName": {
+			"value": "adminganesh"
+		},
+		"ls_rest_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"Schedule_properties_Scheduled Pipeline_parameters_schema": {
+			"value": "source"
+		},
+		"Schedule_properties_Scheduled Pipeline_parameters_table": {
+			"value": "Orders"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
